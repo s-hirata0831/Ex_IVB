@@ -40,7 +40,8 @@
 \section{SQLインジェクションによるデータベースの不正ログイン}
 \subsection*{データベース}
 データベースは決まった条件で整理されたデータの集まりであり，コンピュータ上で大量のデータを効率よく利用するために使用される．
-図\ref{fig1}にデータベースの例を示す．データベースはテーブル(表)
+図\ref{fig1}にデータベースの例を示す．データベースはテーブル(表)を単位として構成され，カラム(列)，レコード(行)，フィールド(セル)の要素を持つ．
+カラムにはデータの属性を示し，レコードは1件分のデータのまとまりである．フィールドには，実際の個々のデータが格納される．
 
 \begin{figure}[htbp]
 \centering
@@ -49,15 +50,16 @@
 \label{fig1}
 \end{figure}
 
-\subsubsection{電源回路の種類と特徴}
-不安定な直流電圧から安定した直流電圧に変換する安定化電源は，図\ref{fig2}に示すように方式や回路構成によって分類できる．うう
+\subsection*{SQLインジェクション}
+SQL(StructuredQueryLanguage)とは，データベースに対してデータの検索・追加・更新・削除といった操作を行うための言語である．
+SQLインジェクションは，図
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics[width=85mm]{fig2.eps}
-%\caption{電源回路(安定化電源)の分類}
-%\label{fig2}
-%\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=85mm]{fig2.eps}
+\caption{電源回路(安定化電源)の分類}
+\label{fig2}
+\end{figure}
 
 \subsection{背景}
 ...
