@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{jsarticle}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\usepackage{atbegshi}
+\usepackage{geometry} % 追加: 余白を一時的に0にするため
+\newcommand{\myPdfAuthor}{平田爽馬/HIRATA,Soma}
+\newcommand{\myPdfTitle}{Webセキュリティ実験}
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}} % pLaTeXの内部漢字コードがEUCの場合
+\AtBeginDvi{\special{pdf:docinfo <<
+ /Author   (\myPdfAuthor)
+ /Title    (\myPdfTitle)>>}}
+%
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.2in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+%
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+%
+\title{\myPdfTitle}
+\author{5E25番 平田爽馬}
+\date{}
+\begin{document}
+%\maketitle%タイトルを挿入したくない場合は，消す
+%
+%
+\section{目的}
+現代ではゲームサーバ・通販サイトなどのサービスを，ネットワーク知識がなくても容易に解説できるまでになっている．
+しかし，これらのサービスには脆弱性を意図せず含んでしまう場合があり，アカウント情報が盗まれるなどの被害が出る可能性がある．
+そのため，本実験では実際に脆弱性を体験し，適切な対策を考察することを目的とする．
+
+\section{SQLインジェクションによるデータベースの不正ログイン}
+\subsection*{データベース}
+データベースは決まった条件で整理されたデータの集まりであり，コンピュータ上で大量のデータを効率よく利用するために使用される．
+図\ref{fig1}にデータベースの例を示す．データベースはテーブル(表)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=85mm]{./fig/fig1.eps}
+\caption{データベースの名称}
+\label{fig1}
+\end{figure}
+
+\subsubsection{電源回路の種類と特徴}
+不安定な直流電圧から安定した直流電圧に変換する安定化電源は，図\ref{fig2}に示すように方式や回路構成によって分類できる．うう
+
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=85mm]{fig2.eps}
+%\caption{電源回路(安定化電源)の分類}
+%\label{fig2}
+%\end{figure}
+
+\subsection{背景}
+...
+...
+
+\subsection{目的}
+...
+...
+
+\subsubsection{構成}
+
+\section{初めに}
+\subsection{背景}
+...
+...
+sw
+
+\subsection{目的}
+...
+...
+
+\subsubsection{構成}
+こんにちは
+dchweqodejqcフェくぃうfdcbwdw\\ %強制改行
+\raise0.2ex\hbox{\textcircled{\scriptsize{2}}}\\
+
+平田は自身のLaTeX講座の集大成として学習ガイドを執筆した\cite{hajime}．
+
+\begin{thebibliography}{99}
+\bibitem{hajime} 塚原壮平, 「初めてのLaTeX講座」, 九大新書, 2023.
+\bibitem{soryu} 塚原壮平, 「素粒子物理学入門」, きゅうり図書, 2023.
+\end{thebibliography}
+%
+\end{document}
