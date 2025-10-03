@@ -6,6 +6,28 @@
 \usepackage{ascmac}
 \usepackage{atbegshi}
 \usepackage{geometry} % 追加: 余白を一時的に0にするため
+\usepackage{listings} % ソースコード表示のために追加
+%ここからソースコードの表示に関する設定
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+\renewcommand{\lstlistingname}{ソースコード} % キャプションを「ソースコード」に変更
+%ここまでソースコードの表示に関する設定
 \newcommand{\myPdfAuthor}{平田爽馬/HIRATA,Soma}
 \newcommand{\myPdfTitle}{Webセキュリティ実験}
 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}} % pLaTeXの内部漢字コードがEUCの場合
@@ -45,25 +67,90 @@
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=85mm]{./fig/fig1.eps}
+\includegraphics[width=90mm]{./fig/fig1.eps}
 \caption{データベースの名称}
 \label{fig1}
 \end{figure}
 
 \subsection*{SQLインジェクション}
 SQL(StructuredQueryLanguage)とは，データベースに対してデータの検索・追加・更新・削除といった操作を行うための言語である．
-SQLインジェクションは，図
+SQLインジェクションは，図\ref{fig2}のようにアプリケーションがデータベースとやり取りを行う際に，悪意のあるSQLコードを挿入することで，不正な操作を実行させる攻撃手法である．
+この攻撃により，攻撃者はデータベース内の情報を不正に取得，改ざん，削除することが可能となる．
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=85mm]{fig2.eps}
-\caption{電源回路(安定化電源)の分類}
+\includegraphics[width=90mm]{./fig/fig2.eps}
+\caption{SQLインジェクションの例}
 \label{fig2}
 \end{figure}
 
-\subsection{背景}
-...
-...
+\subsection*{実験1：XAMMPを用いたGET・POSTの動作確認}
+本実験では，XAMMPを用いて仮想的なサーバを立ち上げて実験を行う．
+XAMMPはウェブ開発に必要なソフトApache，MariaDB(MySQL)，PHP，Perlを一括でインストールできるパッケージソフトウェアである．
+ローカル環境で動作するため，既存のシステムに影響を与えず検証が可能である．\\\\
+以下のリンクより，XAMMPをインストールする．\\
+\fbox{https://www.apachefriends.org/index.html}\\\\
+図\ref{fig3}のように，Startボタンを押して→Stopに切り替わった後，Statusマークが緑色になると準備が完了となる．
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=85mm]{./fig/fig3.eps}
+\caption{XAMMPの起動画面}
+\label{fig3}
+\end{figure}
+
+XAMMPインストール後，xammp/htdocsフォルダが生成される．\\
+(デフォルトはC:/xammp/htdocs)\\
+このフォルダにHTML，PHPファイルなどを置くことで，ブラウザ上からアクセスできるようになる．\\\\
+(例)\\
+C:/xammp/htdocs/index.htmlを置く→ブラウザでhttp://localhost/index.htmlで動作確認できる．
+
+\subsubsection*{課題1}
+login.htmlおよびsession.phpを作成し，login.html上でGET・POSTの動作の違いが何か，URL欄を見て確認する．
+また，GET・POSTの使い分けは何か調査し，まとめる．
+\newpage
+login.htmlをソースコード\ref{code1}に示す．
+
+\begin{lstlisting}[caption=login.html, label=code1]
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form action="login.php" method="post">
+            user:<input type="text" name="username" value=""><br />
+            password:<input type="password" name="password" required><br />
+            <input type="submit" name="login" value="Login">
+        </form>
+    </body>
+</html>
+\end{lstlisting}
+
+session.phpをソースコード\ref{code2}に示す．
+\begin{lstlisting}[caption=session.php, label=code2]
+<?php
+session_start();
+
+$_SESSION["loginname"] = $_POST["username"];
+$_SESSION["pass"] = $_POST["pass"];
+
+if($_SESSION["loginname"] != "hoge" || $_SESSION["pass"] != "pass"){
+?>
+Login Failed<br />
+
+<?php
+
+ exit;
+
+}
+
+if(isset($_POST["username"])) setcookie("username", $_POST["username"], time());
+?>
+Login Succeeded<br />
+\end{lstlisting}
+
+
 
 \subsection{目的}
 ...
