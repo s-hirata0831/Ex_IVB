@@ -17,6 +17,8 @@
   box align=base,
   fontupper=\ttfamily
 }
+% 簡易コード表示用マクロ（本文中で\textttt{...}を使えるようにする）
+\newcommand{\textttt}[1]{\texttt{#1}}
 %ここからソースコードの表示に関する設定
 \lstset{
   basicstyle={\ttfamily},
@@ -734,8 +736,11 @@ XSS実験では，格納型XSSを実装した掲示板サイトにおいて，Ja
 \item マルウェアの配布
 \end{itemize}
 
-実験で実装したエスケープ処理により，HTMLの特殊文字（\texttt{<}，\texttt{>}，\texttt{\&}など）をエンティティに変換することで，スクリプトがコードとして実行されることを防ぐことができた．
-これは最も基本的で効果的なXSS対策の一つであると考える．
+
+実験で実装したエスケープ処理は，掲示板用スクリプト\textttt{keijiban.php}の実装箇所で行った。
+具体的には，投稿をファイルに保存する処理を行う\textttt{writeData()}関数の冒頭で，投稿者名と本文に対してPHPの\textttt{htmlspecialchars}を適用した。
+表示側でも同様に，フォームの初期値やログイン名を出力する際に\textttt{htmlspecialchars}を用いている．
+ただし，本実装は入力時のエスケープを中心とした基本対策にとどまる。より堅牢にするには，出力先のコンテキスト（HTML 本文 / HTML 属性 / JavaScript / URL 等）に応じた適切なエンコードを行うこと，Content-Security-Policy の導入，入力の長さや形式の検査，そしてサーバ側での追加のフィルタリングやログ監視を組み合わせることが重要であると考える．
 
 \subsection{考察2}
 \textbf{現実のXSSに対する被害事例を調査}\\
@@ -749,6 +754,7 @@ XSSの脆弱性を利用した「ワーム」が，巨大SNSを短時間で麻�
 
 攻撃者のSamy Kamkar氏は，この脆弱性を利用し，自身のプロフィールページに自己増殖するワームを埋め込んだ．
 このコードは以下のような動作を自動的に行った．
+\newpage
 \begin{enumerate}
   \item プロフィールページを閲覧したユーザはのプロフィールに，自分自身のコードをコピーして感染を広げる．
   \item 感染したユーザのプロフィールに「but most of all, samy is my hero.」という一文を自動的に追加する．
