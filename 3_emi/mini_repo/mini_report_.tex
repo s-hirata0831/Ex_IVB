@@ -1,0 +1,100 @@
+% !TeX program = ptex2pdf -u -l
+\documentclass[12pt,a4paper]{jsarticle}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{atbegshi}
+\usepackage[dvipdfmx]{geometry} % 追加: 余白を一時的に0にするため（dvipdfmx指定）
+\usepackage{listings} % ソースコード表示のために追加
+\usepackage{float}
+\usepackage{tcolorbox}
+\newtcbox{\code}[1][]{
+  colback=gray!10!white,
+  colframe=gray!20!white,
+  boxrule=0.5pt,
+  left=2pt,right=2pt,top=1pt,bottom=1pt,
+  box align=base,
+  fontupper=\ttfamily
+}
+% 簡易コード表示用マクロ（本文中で\textttt{...}を使えるようにする）
+\newcommand{\textttt}[1]{\texttt{#1}}
+%ここからソースコードの表示に関する設定
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+\renewcommand{\lstlistingname}{ソースコード} % キャプションを「ソースコード」に変更
+%ここまでソースコードの表示に関する設定
+\newcommand{\myPdfAuthor}{平田爽馬/HIRATA,Soma}
+\newcommand{\myPdfTitle}{EMI計測実験—小レポート}
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}} % pLaTeXの内部漢字コードがEUCの場合
+\AtBeginDvi{\special{pdf:docinfo <<
+ /Author   (\myPdfAuthor)
+ /Title    (\myPdfTitle)>>}}
+%
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.2in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+%
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+%
+\title{\myPdfTitle}
+\author{5E25番 平田爽馬}
+\date{}
+\begin{document}
+\maketitle%タイトルを挿入したくない場合は，消す
+%
+%
+\subsection*{電波暗室外の電波分布}
+
+図\ref{fig1}に電波暗室外の電波分布を示す．
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=120mm]{./fig1.eps}
+\caption{電波暗室外の電波分布}
+\label{fig1}
+\end{figure}
+
+
+\subsection*{EMIの計測データ}
+電波暗室内においてミニ四駆を駆動した時の，EMIの計測データに対してCISPR14-1を適用したものを図\ref{fig2}に示す．
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=120mm]{./fig2.eps}
+\caption{ミニ四駆の計測データにCISPR14-1を適用}
+\label{fig2}
+\end{figure}
+
+\subsection*{次週持ってくるもの}
+次週は，以下のものを持参する予定である．
+
+\begin{itemize}
+  \item オーディオスピーカー用のパワーアンプ
+  \item 毛玉取り
+\end{itemize}
+
+\end{document}

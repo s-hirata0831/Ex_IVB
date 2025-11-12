@@ -1,0 +1,87 @@
+% !TeX program = ptex2pdf -u -l
+\documentclass[11pt,a4paper]{jsarticle}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{atbegshi}
+\usepackage[dvipdfmx]{geometry} % 追加: 余白を一時的に0にするため（dvipdfmx指定）
+\usepackage{listings} % ソースコード表示のために追加
+\usepackage{float}
+\usepackage{tcolorbox}
+\newtcbox{\code}[1][]{
+  colback=gray!10!white,
+  colframe=gray!20!white,
+  boxrule=0.5pt,
+  left=2pt,right=2pt,top=1pt,bottom=1pt,
+  box align=base,
+  fontupper=\ttfamily
+}
+% 簡易コード表示用マクロ（本文中で\textttt{...}を使えるようにする）
+\newcommand{\textttt}[1]{\texttt{#1}}
+%ここからソースコードの表示に関する設定
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+\renewcommand{\lstlistingname}{ソースコード} % キャプションを「ソースコード」に変更
+%ここまでソースコードの表示に関する設定
+\newcommand{\myPdfAuthor}{平田爽馬/HIRATA,Soma}
+\newcommand{\myPdfTitle}{EMI計測実験}
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}} % pLaTeXの内部漢字コードがEUCの場合
+\AtBeginDvi{\special{pdf:docinfo <<
+ /Author   (\myPdfAuthor)
+ /Title    (\myPdfTitle)>>}}
+%
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.2in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+%
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+%
+\title{\myPdfTitle}
+\author{5E25番 平田爽馬}
+\date{}
+\begin{document}
+%\maketitle%タイトルを挿入したくない場合は，消す
+%
+%
+\section{目的}
+私たちの周りには，妨害を発生する可能性を持つ多くの電気機器が存在している．
+それらは雷に伴うサージや電磁波，人体などからの静電気放電などといった電気機器以外のものからの妨害とともに，他のものへの干渉を引き起こす可能性がある．
+今回は，その中でも電気機器からの妨害の放射(EMI，日本語で電磁干渉)を計測することで，その基本を理解し，電気機器などを設計する上で必要な考えを理解する．
+
+\section{EMCとは何か}
+EMCは，Electro Magnetic Compatibilityの略であり，日本語では電磁両立性，電磁環境両立性などとも呼ばれている．
+この用語は，「機器やシステムの，その環境内のいかなるものに対しても許容できない妨害を与えることなく，その電磁環境内において満足に機能する能力」のような形で定義される．
+簡単に言えば，機器がその動作によってその他のものに妨害を与えず，EMCが達成されているということになる．
+
+\subsection{なぜEMCが必要か}
+EMCが欠如しているということは，何らかの干渉が発生することを意味する．
+多くの人は電話やラジオへの雑音の混入やテレビの画像の乱れなどを経験したことはあるが，これもEMCが不十分であることによるものである．
+やや深刻なEMC問題の身近な例の1つとしては，携帯電話とペースメーカーとの干渉の可能性が挙げられる．
+私たちの周りには妨害を発生する可能性を持つ多くの電気機器が存在しており，それらは雷に伴うサージや電磁波，人体などからの静電気放電などといった電気機器以外のものからの妨害とともに，他のものへの干渉を引き起こす可能性を持っている．
+このような干渉現象の例としては，表
+
+\end{document}

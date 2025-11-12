@@ -1,7 +1,7 @@
 import PyPDF2
 
-file1 = "/Users/hiratasoma/Documents/Ex_IVB/1_web_security/repo/web_security_front.pdf"
-file2 = "/Users/hiratasoma/Documents/Ex_IVB/1_web_security/repo/out/web_security.pdf"
+file1 = "/Users/hiratasoma/Documents/Ex_IVB/2_power/repo/power_front.pdf"
+file2 = "/Users/hiratasoma/Documents/Ex_IVB/2_power/repo/power.pdf"
 
 merger = PyPDF2.PdfMerger()
 merger.append(file1)
