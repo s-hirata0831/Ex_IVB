@@ -9,6 +9,7 @@
 \usepackage[dvipdfmx]{geometry} % 追加: 余白を一時的に0にするため（dvipdfmx指定）
 \usepackage{listings} % ソースコード表示のために追加
 \usepackage{float}
+\usepackage{hhline}
 \usepackage{tcolorbox}
 \newtcbox{\code}[1][]{
   colback=gray!10!white,
@@ -83,5 +84,21 @@ EMCが欠如しているということは，何らかの干渉が発生する�
 やや深刻なEMC問題の身近な例の1つとしては，携帯電話とペースメーカーとの干渉の可能性が挙げられる．
 私たちの周りには妨害を発生する可能性を持つ多くの電気機器が存在しており，それらは雷に伴うサージや電磁波，人体などからの静電気放電などといった電気機器以外のものからの妨害とともに，他のものへの干渉を引き起こす可能性を持っている．
 このような干渉現象の例としては，表
+
+\begin{table}[H]
+\centering
+\caption{干渉の例}
+\label{table1}
+\begin{tabular}{c|c} \hline
+  現象 & 原因の例 \\ \hhline{=|=}
+  ラジオやオーディオの雑音 & 電磁波，電源からの伝導性雑音 \\ \hline
+  テレビの画像の乱れ & 電磁波，低周波磁界，電源からの伝導性雑音 \\ \hline
+  テレビのゴースト & ビルからの放送波の反射 \\ \hline
+  コンピュータや\\その他の電子機器の誤動作 & 電磁波，電源からの伝導性雑音，\\&静電気放電，サージ，電源電圧変動 \\ \hline
+  照明のちらつき(フリッカ) & 電源電圧変動 \\ \hline
+  変圧器の加熱，\\力率補償用コンデンサや\\雑音防止用コンデンサの破損 & 電源高調波電流 \\ \hline
+  生体への影響 & 電磁波，低周波磁界  \\ \hline
+\end{tabular}
+\end{table}
 
 \end{document}
