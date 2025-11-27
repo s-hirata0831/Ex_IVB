@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.8.23)  19 NOV 2025 23:37
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.8.23)  26 NOV 2025 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,8 +583,20 @@ File: ./fig/fig3.eps Graphic file (type eps)
 <./fig/fig3.eps>
 
 [2]
+File: ./fig/fig4.eps Graphic file (type eps)
+ <./fig/fig4.eps>
 
-[3] (./emi.aux)
+[3]
+
+[4]
+File: ./fig/fig5.eps Graphic file (type eps)
+ <./fig/fig5.eps>
+File: ./fig/fig6.eps Graphic file (type eps)
+ <./fig/fig6.eps>
+
+[5]
+
+[6] (./emi.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
@@ -592,12 +604,12 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17715 strings out of 473836
- 354621 string characters out of 5731190
- 736129 words of memory out of 5000000
- 40691 multiletter control sequences out of 15000+600000
+ 17738 strings out of 473836
+ 355003 string characters out of 5731190
+ 743237 words of memory out of 5000000
+ 40711 multiletter control sequences out of 15000+600000
  570737 words of font info for 97 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  99i,15n,105p,482b,341s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on emi.dvi (3 pages, 26748 bytes).
+Output written on emi.dvi (6 pages, 47004 bytes).
